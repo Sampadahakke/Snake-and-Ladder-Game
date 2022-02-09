@@ -11,8 +11,8 @@ namespace SnakeAndLadderGame
         static void Main(string[] args)
         {
             Console.WriteLine("=============Welcome To Snake And Ladder Game===============");
-            SnakeAndLadder snake = new SnakeAndLadder();    
-            snake.StartsGame();
+            SnakeAndLadder snake = new SnakeAndLadder();  
+            snake.RandomNumber();
             Console.ReadLine();
         }
     }
