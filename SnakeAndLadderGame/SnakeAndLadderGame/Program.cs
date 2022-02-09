@@ -12,7 +12,7 @@ namespace SnakeAndLadderGame
         {
             Console.WriteLine("=============Welcome To Snake And Ladder Game===============");
             SnakeAndLadder snake = new SnakeAndLadder();
-            snake.RandomNumber();
+            snake.TillWin();
             Console.ReadLine();
         }
     }

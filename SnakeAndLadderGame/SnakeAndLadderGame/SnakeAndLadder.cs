@@ -27,6 +27,7 @@ namespace SnakeAndLadderGame
             Position += Number;
             StartsGame();
             Option(Number);
+            Check();
             Console.ReadLine();
         }
 
@@ -38,34 +39,44 @@ namespace SnakeAndLadderGame
             switch (OptionForPlay)
             {
                 case 0:
-                Console.WriteLine("No Play");
-                Console.WriteLine("Your Position is same");
-                break;
+                    Console.WriteLine("No Play");
+                    Console.WriteLine("Your Position is same");
+                    break;
 
                 case 1:
-                Console.WriteLine("You Got A Ladder!!");
-                Position += Number;
-                StartsGame();
-                break;
+                    Console.WriteLine("You Got A Ladder!!");
+                    Position += Number;
+                    StartsGame();
+                    break;
 
                 case 2:
-                Console.WriteLine("Oh No!! Snake Trap ");
-                Position -= Number;
-                StartsGame();
-                break;
+                    Console.WriteLine("Oh No!! Snake Trap ");
+                    Position -= Number;
+                    StartsGame();
+                    break;
 
                 default:
-                Console.WriteLine("Error!!");
-                break;
-
-
-
-
+                    Console.WriteLine("Error!!");
+                    break;
 
             }
 
+        }
+        private void Check()
+        {
+            if (Position < 0)
+                Position = 0;
+            else if (Position >= 100)
+                Position = 100;
+        }
 
 
+         //Method for Player Till It Reaches Winning Position}
+            public void TillWin()
+        {
+            while (Position < 100) ;
+            RandomNumber();
+            Console.WriteLine("\nCongratulations!! You Won!!");
         }
 
 
