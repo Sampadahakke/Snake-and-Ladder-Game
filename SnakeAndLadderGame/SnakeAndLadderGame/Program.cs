@@ -14,6 +14,7 @@ namespace SnakeAndLadderGame
             SnakeAndLadder snake = new SnakeAndLadder();
             snake.StartsGame();
             snake.TillWin();
+            snake.Win();
             Console.ReadLine();
         }
     }

@@ -10,7 +10,8 @@ namespace SnakeAndLadderGame
     {
         //Position of player
         private int Position = 0;
-        private bool WinningCheck = false;  
+        private bool WinningCheck = false; 
+        private int TotalDieRoll=0; 
 
         //Random method for class
          Random number = new Random();
@@ -24,6 +25,7 @@ namespace SnakeAndLadderGame
         //Method To Get Random Number
         public void RandomNumber()
         {
+            TotalDieRoll++;
             int CheckContinue = 0;
             int Number= number.Next(1, 7);
             Console.WriteLine("\nNumber on Dice "+Number);
@@ -103,6 +105,13 @@ namespace SnakeAndLadderGame
             
          }
 
+        public void Win()
+        {
+            while (WinningCheck is false)
+            RandomNumber();
+            Console.WriteLine("Die was rolled " + TotalDieRoll + " times");
+
+        }
    
 
     }
