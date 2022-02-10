@@ -10,6 +10,7 @@ namespace SnakeAndLadderGame
     {
         //Position of player
         private int Position = 0;
+        private bool WinningCheck = false;  
 
         //Random method for class
          Random number = new Random();
@@ -23,11 +24,13 @@ namespace SnakeAndLadderGame
         //Method To Get Random Number
         public void RandomNumber()
         {
+            int CheckContinue = 0;
             int Number= number.Next(1, 7);
             Console.WriteLine("\nNumber on Dice "+Number);
-            Position += Number;
+            if (WinningCheck is false)
+                CheckContinue = MovePlayer(Number);
+            if (WinningCheck is false && CheckContinue == 1)
             Option(Number);
-            Check();
             StartsGame();
         }
 
@@ -57,19 +60,36 @@ namespace SnakeAndLadderGame
                 default:
                     Console.WriteLine("Error!!");
                     break;
-
             }
-
         }
-        private void Check()
+
+        private int Check(int displacement)
         {
             if (Position < 0)
             {
                 Position = 0;
+                return 0;
             }
-            
-            
+            else if (Position > 100)
+            {
+                Position -= displacement;
+                Console.WriteLine("Oops! Your Position Is More Than 100");
+                Console.WriteLine("You are moved Behind to previous position");
+                return 0;
+            }
+            else
+                return 1;
+        }
 
+        private int MovePlayer(int displacement)
+        {
+            Position += displacement;
+            if (Position == 100)
+            {
+                WinningCheck = true;
+                return 0;
+            }
+            return Check(displacement);
         }
 
 
@@ -81,8 +101,9 @@ namespace SnakeAndLadderGame
                 Console.WriteLine("You Won!!");
                 
             
-         }   
+         }
 
+   
 
     }
 }
