@@ -33,7 +33,7 @@ namespace SnakeAndLadderGame
                 CheckContinue = MovePlayer(Number);
             if (WinningCheck is false && CheckContinue == 1)
             Option(Number);
-            StartsGame();
+            
         }
 
         //Method To Get Option For Play
@@ -95,22 +95,25 @@ namespace SnakeAndLadderGame
         }
 
 
-         //Method for Player Till It Reaches Winning Position}
-         public void TillWin()
-         {
-                while (Position < 100)
-                RandomNumber();
-                Console.WriteLine("You Won!!");
-                
-            
-         }
-
-        public void Win()
+        public void TillWin(SnakeAndLadder player2)
         {
-            while (WinningCheck is false)
-            RandomNumber();
-            Console.WriteLine("Die was rolled " + TotalDieRoll + " times");
-
+            while (this.WinningCheck is false && player2.WinningCheck is false)
+            {
+                Console.WriteLine("\nPlayer 1 turn: ");
+                this.RandomNumber();
+                this.StartsGame();
+                if (this.WinningCheck is true)
+                    break;
+                Console.WriteLine("\nPlayer 2 turn: ");
+                player2.RandomNumber();
+                player2.StartsGame();
+            }
+            if (player2.WinningCheck is true)
+                Console.WriteLine("\nCongratulations Player 2!! You Won!!");
+            else
+                Console.WriteLine("\nCongratulations Player 1!! You Won!!");
+            Console.WriteLine("Player 1 Total die rolls: " + this.TotalDieRoll);
+            Console.WriteLine("Player 2 Total die rolls: " + player2.TotalDieRoll);
         }
    
 
